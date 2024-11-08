@@ -12,24 +12,47 @@ permissions:
 
 jobs:
   inso-version-a:
-    name: inso-version
+    name: inso-version-a
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
-      - uses: kong/setup-inso@1462ed09055e40bd588bbb9b8bc537639c3b0549
+      - uses: kong/setup-inso@v1.1.7
         with:
           inso-version: 10.2.0-beta.2
           compression: xz
       - name: Run inso version
         run: inso -v
   inso-version-b:
-    name: inso-version
+    name: inso-version-b
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
-      - uses: kong/setup-inso@1462ed09055e40bd588bbb9b8bc537639c3b0549
+      - uses: kong/setup-inso@v1.1.7
+        with:
+          inso-version: 10.2.0-beta.2
+      - name: Run inso version
+        run: inso -v
+  inso-version-c:
+    name: inso-version-c
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - uses: kong/setup-inso@v1.1.6
+        with:
+          inso-version: 10.2.0-beta.2
+          compression: xz
+      - name: Run inso version
+        run: inso -v
+  inso-version-d:
+    name: inso-version-d
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - uses: kong/setup-inso@v1.1.6
         with:
           inso-version: 10.2.0-beta.2
       - name: Run inso version

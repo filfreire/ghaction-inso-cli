@@ -11,7 +11,7 @@ permissions:
     packages: write
 
 jobs:
-  inso-version:
+  inso-version-a:
     name: inso-version
     runs-on: ubuntu-latest
     steps:
@@ -21,5 +21,16 @@ jobs:
         with:
           inso-version: 10.2.0-beta.2
           compression: xz
+      - name: Run inso version
+        run: inso -v
+  inso-version-b:
+    name: inso-version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - uses: kong/setup-inso@fix/linux-zip-format
+        with:
+          inso-version: 10.2.0-beta.2
       - name: Run inso version
         run: inso -v

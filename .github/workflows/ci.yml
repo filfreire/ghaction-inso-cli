@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
-      - uses: kong/setup-inso@fix/linux-zip-format
+      - uses: kong/setup-inso@1462ed09055e40bd588bbb9b8bc537639c3b0549
         with:
           inso-version: 10.2.0-beta.2
           compression: xz
@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
-      - uses: kong/setup-inso@fix/linux-zip-format
+      - uses: kong/setup-inso@1462ed09055e40bd588bbb9b8bc537639c3b0549
         with:
           inso-version: 10.2.0-beta.2
       - name: Run inso version

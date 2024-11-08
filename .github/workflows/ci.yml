@@ -1,0 +1,25 @@
+name: Build and Push Docker Image to GHCR
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+    contents: read
+    packages: write
+
+jobs:
+  inso-version:
+    name: inso-version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - uses: kong/setup-inso@fix/linux-zip-format
+        with:
+          inso-version: 10.2.0-beta.2
+          compression: xz
+      - name: Run inso version
+        run: inso -v
